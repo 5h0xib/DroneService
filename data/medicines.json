@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "image": "gallary/aspirin.jpg",
+        "name": "ASPRIN 20 mg",
+        "rate": 105,
+        "description": "Aspirin 20 mg is a low-dose medication used mainly to prevent blood clots, reducing the risk of heart attacks and strokes. It is also used to relieve mild to moderate pain, such as headaches, toothaches, and muscle aches. Aspirin works by inhibiting the production of certain chemicals in the body that cause inflammation and pain. It is commonly used for its anti-inflammatory and analgesic properties."
+    },
+    {
+        "id": 2,
+        "image": "gallary/narcan-nasal-spray.jpg",
+        "name": "NARCAN 20mg",
+        "rate": 263,
+        "description": "Narcan is a fast-acting medication used to reverse opioid overdoses. It blocks the effects of opioids on the brain, helping restore normal breathing. Narcan 20 mg is typically administered as a nasal spray or injection in emergency situations."
+    },
+    {
+        "id": 3,
+        "image": "gallary/omesec-20.jpg",
+        "name": "OMESAC 20 mg",
+        "rate": 220,
+        "description": "Omesec is a proton pump inhibitor (PPI) used to treat frequent heartburn, acid reflux, and stomach ulcers. It works by reducing the amount of acid produced in the stomach. Typically taken once daily before meals for up to 14 days."
+    },
+    {
+        "id": 4,
+        "image": "gallary/panadol.jpg",
+        "name": "PANADOL",
+        "rate": 80,
+        "description": "Panadol is a widely used pain reliever and fever reducer. It’s effective for headaches, muscle aches, colds, and flu symptoms. Gentle on the stomach, it’s available in tablets, syrups, and suppositories. Suitable for adults and children as directed."
+    },
+    {
+        "id": 5,
+        "image": "gallary/tranexamic-acid-500.jpg",
+        "name": "TRANXEMIC",
+        "rate": 180,
+        "description": "Tranxemic is used to treat or prevent excessive bleeding. It works by helping blood to clot more effectively, making it useful for heavy menstrual bleeding, surgery, or trauma. Available in tablet or injection form, it should be used under medical supervision."
+    },
+    {
+        "id": 6,
+        "image": "gallary/epi-pen.webp",
+        "name": "EPI PEN",
+        "rate": 75,
+        "description": "Tranxemic is used to treat or prevent excessive bleeding. It works by helping blood to clot more effectively, making it useful for heavy menstrual bleeding, surgery, or trauma. Available in tablet or injection form, it should be used under medical supervision."
+    }
+]

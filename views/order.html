@@ -1,0 +1,245 @@
+<div class="fav-container">
+    <form name="Order" novalidate action="https://api.web3forms.com/submit" method="post">
+        <input type="hidden" name="access_key" value="3665f181-ca1a-4eaa-a8f8-4d3edd142e69">
+        <input type="hidden" name="redirect" value="https://5h0xib.github.io/DroneService/OrderPlaced.html">
+        <div class="fav-box">
+            <h1>Items</h1>
+            <div ng-if="favorites.length === 0">
+                <p>No Items yet</p>
+            </div>
+            <p class="Total-price" ng-if="favorites.length > 0">Total: {{getTotal() | currency:' AED ':0}}</p>
+            
+            <div ng-repeat="item in favorites track by $index" class="item-box" ng-animate="'animate'">
+                <div class="details-box">
+                    <div class="image-box">
+                        <img ng-src="{{item.image}}" alt="{{item.name}}">
+                    </div>
+                    <div class="item-details">
+                        <div class="item-name">{{item.name}}</div>
+                        <div class="price">{{item.rate | currency:'AED ':0}}</div>
+                    </div>
+                </div>
+                <i class="fa-regular fa-trash-can" ng-click="removeFromFavorites(item)"></i>
+
+                <!-- Hidden input for item name -->
+                <input type="hidden" name="item_name_{{$index}}" value="{{item.name}}">
+            </div>
+        </div>
+        <div class="Order-Form" ng-if="favorites.length > 0">
+            <input type="hidden" name="subject" id="subject" value="Drone Order Recieved" />
+
+            <!-- Name -->
+            <input type="text" name="name" id="name" ng-model="formData.name"
+                   placeholder="Name" ng-required="true"
+                   ng-class="{'error': Order.name.$invalid && Order.name.$touched}" />
+
+            <!-- Address -->
+            <input type="text" name="address" id="address" ng-model="formData.address"
+                   placeholder="Address" ng-required="true"
+                   ng-class="{'error': Order.address.$invalid && Order.address.$touched}" />
+
+            <!-- Phone Number -->
+            <input type="tel" name="phone" id="phone" ng-model="formData.phone"
+                   placeholder="Phone (+971)" ng-required="true"
+                   ng-pattern="/^\d{10}$/" maxlength="10" inputmode="numeric" pattern="\d*"
+                   ng-change="formData.phone = formData.phone.toString().replace(/[^0-9]/g, '').slice(0, 10);"
+                   ng-class="{'error': Order.phone.$invalid && Order.phone.$touched}" />
+
+            <div>
+                <input type="number" name="doorNo" id="doorNo" ng-model="formData.doorNo"
+                   placeholder="Door No" ng-required="true"
+                   ng-class="{'error': Order.doorNo.$invalid && Order.doorNo.$touched}" />
+
+                <button type="submit" ng-disabled="Order.$invalid">Place Order</button>
+            </div>
+        </div>
+    </form>
+    <div class="reset-div" ng-if="favorites.length > 0">
+        <button class="resetFavBtn" ng-click="clearFavorites()">Clear all items</button>
+    </div>
+</div>
+
+
+
+<style>
+
+.Order-Form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    flex-direction: column;
+    width: 100%;
+}
+
+.fav-container .reset-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fav-container .reset-div .resetFavBtn{
+    padding: 7px;
+    font-size: 16px;
+    margin: 3px;
+    border: none;
+    box-shadow: 2px 2px 5px 1px #00000027;
+    border-radius: 5px;
+    width: 120px;
+    text-align: center;
+}
+
+.Order-Form input{
+    padding: 7px;
+    font-size: 16px;
+    margin: 3px;
+    border: none;
+    box-shadow: 0px 0px 4px #00000057;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.Order-Form #doorNo{
+    padding: 7px;
+    font-size: 16px;
+    margin: 3px;
+    border: none;
+    box-shadow: 0px 0px 4px #00000057;
+    border-radius: 5px;
+    width: 120px;
+    text-align: center;
+}
+
+.Order-Form #doorNo::-webkit-inner-spin-button,
+.Order-Form #doorNo::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.Order-Form button{
+    padding: 7px;
+    font-size: 16px;
+    margin: 3px;
+    border: none;
+    box-shadow: 0px 0px 4px #00000057;
+    border-radius: 5px;
+    width: 120px;
+    text-align: center;
+}
+
+
+.Order-Form button:not(:disabled) {
+    background-color: #006618; /* Green when enabled */
+    color: white;
+}
+
+.Order-Form button:disabled {
+    background-color: #ccc; /* Gray when disabled */
+    color: #666;
+    cursor: not-allowed;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.fav-box {
+    width: 100%;
+    max-width: 800px;
+}
+
+.fav-box p{
+    font-size: 18px;
+}
+
+.item-box {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px #0000001a;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.item-box .details-box{
+    display: flex;
+    align-items: center;
+}
+
+.item-box i{
+    margin: 20px;
+}
+
+.image-box img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.item-details .item-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.item-details .price {
+    font-size: 14px;
+    color: #a00000;
+}
+
+.Total-price{
+    color: #a00000;
+}
+
+/* animations */
+.item-box.ng-enter {
+    transition: 0.6s linear all;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.item-box.ng-enter.ng-enter-active {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* Adjust for staggered leave animation */
+.item-box.ng-leave {
+    transition: 0.2s linear all;
+    opacity: 0.5;
+    transform: translateY(0px);
+}
+
+.item-box.ng-leave.ng-leave-active {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Staggered exit effect */
+.item-box.ng-leave-stagger {
+    transition-delay: 0.1s;
+    transition-duration: 0.2s;
+}
+
+</style>
+
+<script>
+function limitPhoneLength(input) {
+  // Convert to string, strip non-digits, limit to 10 characters
+  let digits = input.value.replace(/\D/g, '').slice(0, 10);
+  input.value = digits;
+}
+</script>

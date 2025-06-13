@@ -1,0 +1,37 @@
+[
+    {
+        "id": 10,
+        "image": "gallary/heart.jpg",
+        "name": "Human heart",
+        "rate": 10500000,
+        "description": "A vital organ that pumps blood throughout the body. Used for transplants or medical education. Requires blood type matching, cold storage, and legal clearance."
+    },
+    {
+        "id": 11,
+        "image": "gallary/liver.jpg",
+        "name": "Human liver",
+        "rate": 8000000,
+        "description": "A crucial organ for detoxification, metabolism, and digestion. Used in transplants or medical studies. Requires blood type matching, cold storage, and legal clearance."
+    },
+    {
+        "id": 12,
+        "image": "gallary/kidney.jpg",
+        "name": "Human kidney",
+        "rate": 5000000,
+        "description": "Essential for filtering blood and producing urine. Used in transplants or medical research. Requires blood type matching, cold storage, and legal clearance."
+    },
+    {
+        "id": 13,
+        "image": "gallary/lungs.webp",
+        "name": "Human lungs",
+        "rate": 12000000,
+        "description": "Vital for respiration and oxygen exchange. Used in transplants or medical education. Requires blood type matching, cold storage, and legal clearance."
+    },
+    {
+        "id": 14,
+        "image": "gallary/pancreas.jpg",
+        "name": "Human pancreas",
+        "rate": 6000000,
+        "description": "Important for digestion and insulin production. Used in transplants or medical research. Requires blood type matching, cold storage, and legal clearance."
+    }
+]
